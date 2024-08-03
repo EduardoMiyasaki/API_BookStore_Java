@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/bookstore/books") // URI padrão
+@RequestMapping("/bookstore/book") // URI padrão
 public class BookControlller {
 
     private final BookStoreService bookService;

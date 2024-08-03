@@ -20,7 +20,7 @@ public class AuthorController {
     @Autowired
     AuthorRepository authorRepository;
 
-    @PostMapping("/authors")
+    @PostMapping("/author")
     public ResponseEntity<AuthorModel> saveAuthor(@RequestBody AuthorRecordDto authorRecordDto){
 
         //instanciando um Author Model
@@ -31,12 +31,12 @@ public class AuthorController {
         return ResponseEntity.status(HttpStatus.CREATED).body(authorRepository.save(authorModel));
     }
 
-    @GetMapping("/authors")
+    @GetMapping("/author")
     public ResponseEntity<List<AuthorModel>> getAllAuthors(){
         return ResponseEntity.status(HttpStatus.OK).body(authorRepository.findAll());
     }
 
-    @GetMapping("/authors/{id}")
+    @GetMapping("/author/{id}")
     public ResponseEntity<Object> getOneAuthor(@PathVariable(value = "id") UUID id){
 
         Optional<AuthorModel> author0 = authorRepository.findById(id);
@@ -49,7 +49,7 @@ public class AuthorController {
         return ResponseEntity.status(HttpStatus.OK).body(author0.get());
     }
 
-    @PutMapping("/authors/{id}")
+    @PutMapping("/author/{id}")
     public ResponseEntity<Object> updateAuthor(@PathVariable(value = "id")UUID id , @RequestBody AuthorRecordDto authorRecordDto){
 
         Optional<AuthorModel> author0 = authorRepository.findById(id);
@@ -64,7 +64,7 @@ public class AuthorController {
         return ResponseEntity.status(HttpStatus.OK).body(authorRepository.save(authorModel));
     }
 
-    @DeleteMapping("/authors/{id}")
+    @DeleteMapping("/author/{id}")
     public ResponseEntity<Object> deleteAuthor(@PathVariable(value = "id")UUID id){
 
         Optional<AuthorModel> author0 = authorRepository.findById(id);
